@@ -7,8 +7,8 @@ The Campus Crisis Agent processes campus reports sequentially, correlates relate
 
 ## Agent Hidden data Output
 
-Output file: [View output](./outputs/predictions.jsonl)
-Replay file: [View replay](./public/replay.json)
+Output file: [View output](./Hackathon%20Result/predictions.jsonl)
+Replay file: [View replay](./Hackathon%20Result/replay.json)
 ---
 
 ## Quick Start
