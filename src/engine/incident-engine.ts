@@ -88,7 +88,7 @@ export class IncidentEngine {
     const text = report.descriptionKey;
     const duplicate = incident.evidence.some((evidence) => evidence === report.descriptionKey) || keyword(text, /\bduplicate\b/) || (overlap(report.tokens, incident.tokenSet) > 0.82 && report.tokens.length > 2);
     if (this.isResolution(text)) return 'RESOLUTION';
-    if (duplicate) return 'DUPLICATE';
+    if (duplicate && !(incident.status === 'RESOLVED' && keyword(text, /again|return|recurr|reappeared|new failure/))) return 'DUPLICATE';
     if (this.isConflict(text)) return 'CONFLICT';
     if (keyword(text, /another|second|confirms|witness|multiple|security confirms|lecturer reports/)) return 'CORROBORATION';
     return 'UPDATE';

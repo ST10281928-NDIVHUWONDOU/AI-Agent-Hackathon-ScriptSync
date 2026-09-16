@@ -1,0 +1,25 @@
+report_id,timestamp,location,category,reported_severity,description,reporter_type
+U001,not-a-time,North Hub,electrical,medium,Power is flickering near the north hub cabinet.,staff
+U002,,North Hub Bldg,electrical,MEDIUM,The cabinet hum is louder and corridor lights are out.,
+U003,2026-10-01T09:05,North Hub,electrical,MEDIUM,Power is flickering near the north hub cabinet.,student
+U004,2026-10-01T09:08,North Hub,electrical,medium,North hub cabinet still buzzes and lights remain out.,security
+U005,2026-10-01T09:11,North Hub,electrical,LOW,A technician says this may only be a planned lighting test.,staff
+U006,2026-10-01T09:14,North Hub Building,electrcal,HIGH,Sparks are visible at the cabinet and staff are moving away.,system_sensor
+U007,2026-10-01T09:18,North Hub,electrical,,Electrical staff isolate the affected circuit.,staff
+U008,2026-10-01T09:22,North Hub,electrical,low,Power is restored but monitoring continues.,staff
+U009,2026-10-01T09:27,North Hub,electrical,LOW,Verified repair complete and lighting is stable.,staff
+U010,2026-10-01T09:34,North Hub,electrical,HIGH,Sparks return at the north hub cabinet.,security
+U011,2026-10-01T09:02,North Hall,maintenance,,Water is pooling under a pipe near the east doors.,student
+U012,2026-10-01T09:07,N. Hall,facilities,medium,Water is pooling beneath the pipe by the east doors.,staff
+U013,2026-10-01T09:12,North Hall,facilities,MEDIUM,Another witness confirms water spreading from the pipe.,
+U014,2026-10-01T09:16,North Hall,facilities,HIGH,Facilities isolated the pipe and cordoned the wet area.,staff
+U015,2026-10-01T09:21,North Hall,facilities,LOW,Repairs are complete and the plumbing is under test.,staff
+U016,2026-10-01T09:29,North Hall,facilities,LOW,Verified repair complete with no remaining water hazard.,staff
+U017,2026-10-01T09:06,South Hall Court,medical,high,A student collapsed during practice and needs first aid.,staff
+U018,2026-10-01T09:10,South Hall Cafeteria,cleaning,low,A drink spill is making the dining floor slippery.,student
+U019,2026-10-01T09:40,East Science Lab,facilities,MEDIUM,Water leak under pipes in the east science lab.,staff
+U020,2026-10-01T09:43,West Science Lab,facilities,MEDIUM,Water leak under pipes in the west science lab.,staff
+U021,2026-10-01T09:46,,facilities,MEDIUM,Water leak under science lab pipes.,staff
+U022,2026-10-01T09:50,Library Level 1,facilities,HIGH,Wi-Fi and learning systems are unavailable in the library.,system_sensor
+U023,2026-10-01T09:54,Library Level 1,,medium,The learning platform remains unavailable for students.,staff
+U024,2026-10-01T10:00,Library Level 1,it,LOW,Verified restoration: network service is stable and monitoring is complete.,staff

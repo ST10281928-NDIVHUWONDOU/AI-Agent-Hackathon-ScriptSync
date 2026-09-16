@@ -52,4 +52,9 @@ describe('IncidentEngine', () => {
     expect(predictions[3].relationship).toBe('RESOLUTION'); expect(predictions[3].incident_status).toBe('RESOLVED'); expect(predictions[3].actions.some((action) => action.type === 'CLOSE_INCIDENT')).toBe(true);
     expect(predictions[4].incident_id).toBe(predictions[0].incident_id); expect(predictions[4].incident_status).toBe('ACTIVE'); expect(predictions[4].relationship).not.toBe('RESOLUTION');
   });
+  it('does not suppress credible recurrence after a resolved incident as a duplicate', async () => {
+    const engine = new IncidentEngine(services, '');
+    const predictions = await engine.processAll([row('R1', 'Sparks are visible at the cabinet.', 'North Hub', 'electrical', 'HIGH'), row('R2', 'Resolved: verified repair complete and no remaining hazard.', 'North Hub', 'electrical', 'LOW'), row('R3', 'Sparks return at the cabinet again.', 'North Hub', 'electrical', 'HIGH')]);
+    expect(predictions[2].relationship).toBe('UPDATE'); expect(predictions[2].incident_status).toBe('ACTIVE'); expect(predictions[2].actions.some((action) => action.type === 'ESCALATE_RESPONSE')).toBe(true);
+  });
 });
