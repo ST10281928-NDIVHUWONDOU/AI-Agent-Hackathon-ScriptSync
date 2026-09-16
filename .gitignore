@@ -3,7 +3,7 @@ dist/
 .env
 .env.local
 .env.*.local
-predictions.jsonl
+
 public/replay.json
 outputs/
 *.tsbuildinfo
