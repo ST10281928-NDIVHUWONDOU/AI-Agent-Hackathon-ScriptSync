@@ -21,3 +21,5 @@ The dashboard reads the replay produced by the exact prediction run; its full in
 ## Optional Groq
 
 Copy `.env.example` to a local environment file and set `GROQ_API_KEY` when semantic adjudication is wanted. The engine remains deterministic and fully runnable without Groq; failed or unavailable Groq calls fall back without interrupting processing.
+
+To verify a configured local Groq credential without exposing it, run `npm run test:groq`. This optional server-side diagnostic loads `.env.local`, validates structured adjudication, exercises an ambiguous engine case, and checks failure fallback.

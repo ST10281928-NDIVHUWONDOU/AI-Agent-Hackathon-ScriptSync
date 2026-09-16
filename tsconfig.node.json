@@ -11,5 +11,5 @@
     "skipLibCheck": true,
     "noEmit": true
   },
-  "include": ["run_predictions.ts", "src/**/*.ts", "vite.config.ts", "eslint.config.js"]
+  "include": ["run_predictions.ts", "scripts/**/*.ts", "src/**/*.ts", "vite.config.ts", "eslint.config.js"]
 }

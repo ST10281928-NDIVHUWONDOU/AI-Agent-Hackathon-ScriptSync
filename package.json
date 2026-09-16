@@ -8,11 +8,14 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "test": "vitest run",
-    "predict": "tsx run_predictions.ts"
+    "predict": "tsx run_predictions.ts",
+    "test:groq": "tsx scripts/groq-smoke.ts"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
     "csv-parse": "latest",
+    "dotenv": "latest",
+    "dotenv": "^17.4.2",
     "groq-sdk": "latest",
     "react": "latest",
     "react-dom": "latest",
@@ -24,9 +27,9 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "eslint": "latest",
+    "tsx": "latest",
     "typescript": "latest",
     "typescript-eslint": "latest",
-    "tsx": "latest",
     "vitest": "latest"
   }
 }

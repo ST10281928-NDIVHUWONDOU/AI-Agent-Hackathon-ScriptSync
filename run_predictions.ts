@@ -3,6 +3,7 @@ import { dirname } from 'node:path';
 import { parse } from 'csv-parse/sync';
 import { IncidentEngine } from './src/engine/incident-engine.js';
 import type { Prediction, RawReport, Service } from './src/models.js';
+import { loadLocalGroqEnvironment } from './src/groq/load-environment.js';
 
 interface Options { input: string; services: string; output: string; replay: string; }
 function options(args: string[]): Options {
@@ -17,6 +18,7 @@ function validate(predictions: Prediction[], services: Service[], reports: RawRe
   predictions.forEach((prediction, index) => { if (prediction.report_id !== reports[index].report_id || ids.has(prediction.report_id)) throw new Error(`Report order or uniqueness failed at row ${index + 1}`); ids.add(prediction.report_id); if (!Number.isFinite(prediction.confidence) || prediction.confidence < 0 || prediction.confidence > 1) throw new Error(`Invalid confidence for ${prediction.report_id}`); prediction.actions.forEach((action) => { if (action.service_id && !serviceIds.has(action.service_id)) throw new Error(`Unknown service ${action.service_id}`); }); });
 }
 async function main(): Promise<void> {
+  loadLocalGroqEnvironment();
   const config = options(process.argv.slice(2));
   const [reportsText, servicesText] = await Promise.all([readFile(config.input, 'utf8'), readFile(config.services, 'utf8')]);
   const reports = csv<RawReport>(reportsText); const services = csv<Service>(servicesText); const engine = new IncidentEngine(services);
