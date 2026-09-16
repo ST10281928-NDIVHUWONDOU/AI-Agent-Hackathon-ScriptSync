@@ -5,4 +5,5 @@ dist/
 .env.*.local
 predictions.jsonl
 public/replay.json
+outputs/
 *.tsbuildinfo

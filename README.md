@@ -12,6 +12,10 @@ Rules-first, sequential incident processing for the Campus Crisis Agent challeng
 
 This processes `data/campus_reports.csv` in supplied file order and writes `predictions.jsonl` plus `public/replay.json`. Optional overrides are available, for example `npm run predict -- --input path/to/reports.csv --services path/to/services.csv --output predictions.jsonl --replay public/replay.json`.
 
+## Latest outputs
+
+After a prediction run, the easiest copies of the latest artifacts are `outputs/predictions.jsonl` and `outputs/replay.json`. The compatibility files remain `predictions.jsonl` and `public/replay.json`; the dashboard reads the latter. For lecturer data, run `npm run predict -- --input "path/to/lecturer-reports.csv"`, retrieve the latest files from `outputs/`, and optionally run `npm run dev`.
+
 ## Run dashboard
 
 `npm run dev`

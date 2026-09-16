@@ -24,8 +24,12 @@ async function main(): Promise<void> {
   const reports = csv<RawReport>(reportsText); const services = csv<Service>(servicesText); const engine = new IncidentEngine(services);
   const predictions = await engine.processAll(reports); validate(predictions, services, reports);
   const replay = engine.replay();
+  const predictionContent = `${predictions.map((prediction) => JSON.stringify(prediction)).join('\n')}\n`;
+  const replayContent = `${JSON.stringify(replay, null, 2)}\n`;
   await Promise.all([mkdir(dirname(config.output), { recursive: true }), mkdir(dirname(config.replay), { recursive: true })]);
-  await Promise.all([writeFile(config.output, `${predictions.map((prediction) => JSON.stringify(prediction)).join('\n')}\n`, 'utf8'), writeFile(config.replay, `${JSON.stringify(replay, null, 2)}\n`, 'utf8')]);
+  await Promise.all([writeFile(config.output, predictionContent, 'utf8'), writeFile(config.replay, replayContent, 'utf8')]);
+  await mkdir('outputs', { recursive: true });
+  await Promise.all([writeFile('outputs/predictions.jsonl', predictionContent, 'utf8'), writeFile('outputs/replay.json', replayContent, 'utf8')]);
   console.log(JSON.stringify({ reports: predictions.length, incidents: replay.statistics.totalIncidents, relationships: replay.statistics.relationships, actions: replay.statistics.actions, groq: { adjudications: replay.statistics.groqAdjudications, fallbacks: replay.statistics.groqFallbacks } }, null, 2));
 }
 main().catch((error: unknown) => { console.error(error instanceof Error ? error.message : error); process.exitCode = 1; });
