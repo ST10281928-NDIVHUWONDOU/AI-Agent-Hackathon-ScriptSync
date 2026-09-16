@@ -4,6 +4,10 @@ Agentic AI Hackathon submission by Aaryan, Tival and Ndivhuwo.
 
 The Campus Crisis Agent processes campus reports sequentially, correlates related reports into evolving incidents, reassesses severity and confidence, selects operational actions, prevents duplicate dispatches, handles conflicting evidence, and tracks incidents through control and resolution.
 
+
+## Agent Hidden data Output
+Output file :[View output] (Hackathon Result/predictions.jsonl)
+Replay file : [View replay] (Hackathon Result/replay.json)
 ---
 
 ## Quick Start
